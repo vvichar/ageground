@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internet Postal Service</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">Internet Postal Service</a>
+    </header>
+
+    <main id="app">
+        <!-- Compose View -->
+        <div id="compose-view" class="view active">
+            <div class="compose-container">
+                <div class="letter-container">
+                    <div class="letter-paper">
+                        <textarea
+                            id="message-input"
+                            placeholder="Write your message here..."
+                            maxlength="1000"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <div class="envelope-container">
+                    <div class="envelope" id="envelope">
+                        <div class="envelope-back"></div>
+                        <div class="envelope-front">
+                            <div class="envelope-flap"></div>
+                        </div>
+                        <div class="postmark hidden" id="postmark">
+                            <svg viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" fill="none" stroke="#D32F2F" stroke-width="3"/>
+                                <circle cx="50" cy="50" r="35" fill="none" stroke="#D32F2F" stroke-width="2"/>
+                                <text x="50" y="45" text-anchor="middle" font-size="12" fill="#D32F2F" font-weight="bold">U.S. MAIL</text>
+                                <text x="50" y="60" text-anchor="middle" font-size="10" fill="#D32F2F" id="postmark-date"></text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="slide-button-container">
+                        <button id="slide-button" class="slide-button" disabled>
+                            <span class="slide-text">Slide to Send</span>
+                            <span class="slide-arrow">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recipient View -->
+        <div id="recipient-view" class="view">
+            <div class="recipient-container">
+                <div class="envelope-display" id="envelope-display">
+                    <div class="envelope received">
+                        <div class="envelope-back"></div>
+                        <div class="envelope-front">
+                            <div class="envelope-flap"></div>
+                        </div>
+                        <div class="postmark" id="postmark-received">
+                            <svg viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="45" fill="none" stroke="#D32F2F" stroke-width="3"/>
+                                <circle cx="50" cy="50" r="35" fill="none" stroke="#D32F2F" stroke-width="2"/>
+                                <text x="50" y="45" text-anchor="middle" font-size="12" fill="#D32F2F" font-weight="bold">U.S. MAIL</text>
+                                <text x="50" y="60" text-anchor="middle" font-size="10" fill="#D32F2F" id="postmark-date-received"></text>
+                            </svg>
+                        </div>
+                    </div>
+                    <button id="open-button" class="open-button">Open Letter</button>
+                </div>
+
+                <div class="letter-display hidden" id="letter-display">
+                    <div class="letter-paper received">
+                        <div id="letter-content" class="letter-content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Share Link Modal -->
+        <div id="share-modal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Your Letter is Ready!</h2>
+                <p>Share this link with your recipient:</p>
+                <div class="link-container">
+                    <input type="text" id="share-link" readonly>
+                    <button id="copy-button">Copy Link</button>
+                </div>
+                <button id="close-modal" class="secondary-button">Close</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
