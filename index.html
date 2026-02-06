@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Code Generator | مولد الكود الذكي</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Header Section -->
+    <!-- العنوان الرئيسي -->
+    <header class="main-header">
+        <div class="container">
+            <h1 class="title">
+                <span class="en">AI Code Generator with Explanations</span>
+                <span class="ar">مولد الكود الذكي مع الشرح</span>
+            </h1>
+            <button id="languageToggle" class="language-toggle">
+                <span class="en">عربي</span>
+                <span class="ar">English</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <!-- منطقة المحتوى الرئيسية -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Code Generation Section -->
+            <!-- قسم توليد الكود -->
+            <section class="code-generator-section">
+                <div class="input-section">
+                    <label for="codePrompt" class="label">
+                        <span class="en">Enter your code request:</span>
+                        <span class="ar">أدخل طلب الكود:</span>
+                    </label>
+                    <textarea
+                        id="codePrompt"
+                        class="code-input"
+                        rows="4"
+                        placeholder="Example: Create a function to sort an array / مثال: أنشئ دالة لترتيب مصفوفة"
+                    ></textarea>
+                    <button id="generateBtn" class="generate-btn">
+                        <span class="en">Generate Code</span>
+                        <span class="ar">توليد الكود</span>
+                    </button>
+                </div>
+
+                <!-- Generated Code Output -->
+                <!-- مخرجات الكود المولد -->
+                <div class="output-section">
+                    <div class="output-header">
+                        <h2>
+                            <span class="en">Generated Code:</span>
+                            <span class="ar">الكود المولد:</span>
+                        </h2>
+                        <button id="copyBtn" class="copy-btn">
+                            <span class="en">Copy</span>
+                            <span class="ar">نسخ</span>
+                        </button>
+                    </div>
+                    <pre id="codeOutput" class="code-output"><code></code></pre>
+                </div>
+            </section>
+
+            <!-- Instructions Section -->
+            <!-- قسم التعليمات -->
+            <section class="instructions-section">
+                <h2>
+                    <span class="en">AI Instruction Set</span>
+                    <span class="ar">مجموعة تعليمات الذكاء الاصطناعي</span>
+                </h2>
+                <div class="instructions-content">
+                    <div class="instruction-card">
+                        <h3>
+                            <span class="en">System Instructions</span>
+                            <span class="ar">تعليمات النظام</span>
+                        </h3>
+                        <p class="en">The AI follows these guidelines when generating code with explanations:</p>
+                        <p class="ar">يتبع الذكاء الاصطناعي هذه الإرشادات عند توليد الكود مع الشرح:</p>
+                        <ul>
+                            <li>
+                                <span class="en">1. Analyze the user's request thoroughly</span>
+                                <span class="ar">1. تحليل طلب المستخدم بشكل شامل</span>
+                            </li>
+                            <li>
+                                <span class="en">2. Generate clean, well-structured code</span>
+                                <span class="ar">2. توليد كود نظيف ومنظم بشكل جيد</span>
+                            </li>
+                            <li>
+                                <span class="en">3. Add inline comments explaining each section</span>
+                                <span class="ar">3. إضافة تعليقات توضيحية لكل قسم</span>
+                            </li>
+                            <li>
+                                <span class="en">4. Include examples and use cases</span>
+                                <span class="ar">4. تضمين أمثلة وحالات استخدام</span>
+                            </li>
+                            <li>
+                                <span class="en">5. Follow best practices and coding standards</span>
+                                <span class="ar">5. اتباع أفضل الممارسات ومعايير البرمجة</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 7 Overlays Stacked in Lower Right Corner -->
+    <!-- 7 طبقات متراكبة في الزاوية السفلية اليمنى -->
+    <div class="overlays-container">
+        <!-- Overlay 1: Welcome Message -->
+        <div class="overlay overlay-1" data-overlay="1">
+            <div class="overlay-content">
+                <button class="close-btn" data-close="1">×</button>
+                <h3>
+                    <span class="en">Welcome</span>
+                    <span class="ar">أهلاً وسهلاً</span>
+                </h3>
+                <p>
+                    <span class="en">Click to explore features</span>
+                    <span class="ar">انقر لاستكشاف الميزات</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Overlay 2: Code Examples -->
+        <div class="overlay overlay-2" data-overlay="2">
+            <div class="overlay-content">
+                <button class="close-btn" data-close="2">×</button>
+                <h3>
+                    <span class="en">Code Examples</span>
+                    <span class="ar">أمثلة الكود</span>
+                </h3>
+                <p>
+                    <span class="en">View sample code</span>
+                    <span class="ar">عرض نماذج الكود</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Overlay 3: Language Support -->
+        <div class="overlay overlay-3" data-overlay="3">
+            <div class="overlay-content">
+                <button class="close-btn" data-close="3">×</button>
+                <h3>
+                    <span class="en">Languages</span>
+                    <span class="ar">اللغات</span>
+                </h3>
+                <p>
+                    <span class="en">Python, JavaScript, C++</span>
+                    <span class="ar">بايثون، جافا سكريبت، سي++</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Overlay 4: Documentation -->
+        <div class="overlay overlay-4" data-overlay="4">
+            <div class="overlay-content">
+                <button class="close-btn" data-close="4">×</button>
+                <h3>
+                    <span class="en">Documentation</span>
+                    <span class="ar">التوثيق</span>
+                </h3>
+                <p>
+                    <span class="en">Read the docs</span>
+                    <span class="ar">اقرأ الوثائق</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Overlay 5: Settings -->
+        <div class="overlay overlay-5" data-overlay="5">
+            <div class="overlay-content">
+                <button class="close-btn" data-close="5">×</button>
+                <h3>
+                    <span class="en">Settings</span>
+                    <span class="ar">الإعدادات</span>
+                </h3>
+                <p>
+                    <span class="en">Configure preferences</span>
+                    <span class="ar">ضبط التفضيلات</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Overlay 6: Help & Support -->
+        <div class="overlay overlay-6" data-overlay="6">
+            <div class="overlay-content">
+                <button class="close-btn" data-close="6">×</button>
+                <h3>
+                    <span class="en">Help</span>
+                    <span class="ar">المساعدة</span>
+                </h3>
+                <p>
+                    <span class="en">Get assistance</span>
+                    <span class="ar">احصل على المساعدة</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Overlay 7: About -->
+        <div class="overlay overlay-7" data-overlay="7">
+            <div class="overlay-content">
+                <button class="close-btn" data-close="7">×</button>
+                <h3>
+                    <span class="en">About</span>
+                    <span class="ar">حول</span>
+                </h3>
+                <p>
+                    <span class="en">Learn more</span>
+                    <span class="ar">اعرف المزيد</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <!-- تذييل الصفحة -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>
+                <span class="en">AI Code Generator © 2026 | Powered by Advanced AI</span>
+                <span class="ar">مولد الكود الذكي © 2026 | مدعوم بالذكاء الاصطناعي المتقدم</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
