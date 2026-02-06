@@ -570,17 +570,24 @@ console.log('User data:', user); // Contains user.password
 // TEST CASES / حالات الاختبار
 // ===========================
 
+// Helper function for deep array comparison
+// دالة مساعدة للمقارنة العميقة للمصفوفات
+function arraysEqual(arr1, arr2) {
+    if (arr1.length !== arr2.length) return false;
+    return arr1.every((value, index) => value === arr2[index]);
+}
+
 // Test 1: Normal input
 // الاختبار 1: إدخال عادي
-console.assert(sort([3,1,2]) === [1,2,3]);
+console.assert(arraysEqual(sort([3,1,2]), [1,2,3]));
 
 // Test 2: Empty array
 // الاختبار 2: مصفوفة فارغة
-console.assert(sort([]) === []);
+console.assert(arraysEqual(sort([]), []));
 
 // Test 3: Single element
 // الاختبار 3: عنصر واحد
-console.assert(sort([5]) === [5]);
+console.assert(arraysEqual(sort([5]), [5]));
 ```
 
 ---
