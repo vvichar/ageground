@@ -1,0 +1,600 @@
+/* ===========================
+   CSS STYLESHEET FOR AI CODE GENERATOR
+   This file contains all styling for the website including the 7 overlays
+   ملف الأنماط لمولد الكود الذكي
+   =========================== */
+
+/* ===========================
+   GLOBAL RESET AND BASE STYLES
+   Reset default browser styles and set base properties
+   إعادة تعيين الأنماط الافتراضية
+   =========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Root CSS Variables for consistent theming */
+/* متغيرات CSS الجذرية للتنسيق الموحد */
+:root {
+    --primary-color: #6366f1;
+    --secondary-color: #8b5cf6;
+    --background-color: #0f172a;
+    --surface-color: #1e293b;
+    --text-color: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --success-color: #10b981;
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Body base styling */
+/* تنسيق أساسي للصفحة */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--background-color) 0%, #1e293b 100%);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Container for content centering and max-width */
+/* حاوية لتوسيط المحتوى وتحديد العرض الأقصى */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* ===========================
+   LANGUAGE TOGGLE FUNCTIONALITY
+   Controls visibility of English and Arabic text
+   التحكم في ظهور النص الإنجليزي والعربي
+   =========================== */
+body:not(.rtl) .ar {
+    display: none;
+}
+
+body.rtl .en {
+    display: none;
+}
+
+body.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+/* ===========================
+   HEADER SECTION
+   Top navigation and title area
+   قسم الرأس العلوي
+   =========================== */
+.main-header {
+    background: var(--surface-color);
+    padding: 1.5rem 0;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Main title styling */
+/* تنسيق العنوان الرئيسي */
+.title {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+/* Language toggle button */
+/* زر تبديل اللغة */
+.language-toggle {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+.language-toggle:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ===========================
+   MAIN CONTENT AREA
+   Primary content section
+   منطقة المحتوى الرئيسية
+   =========================== */
+.main-content {
+    flex: 1;
+    padding: 3rem 0;
+}
+
+/* ===========================
+   CODE GENERATOR SECTION
+   Input and output areas for code generation
+   قسم توليد الكود
+   =========================== */
+.code-generator-section {
+    background: var(--surface-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 2rem;
+}
+
+/* Input section styling */
+/* تنسيق قسم الإدخال */
+.input-section {
+    margin-bottom: 2rem;
+}
+
+.label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+/* Textarea for code prompt input */
+/* منطقة نص لإدخال طلب الكود */
+.code-input {
+    width: 100%;
+    padding: 1rem;
+    background: var(--background-color);
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
+    color: var(--text-color);
+    font-size: 1rem;
+    font-family: 'Courier New', monospace;
+    resize: vertical;
+    transition: var(--transition);
+}
+
+.code-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* Generate button styling */
+/* تنسيق زر التوليد */
+.generate-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: var(--transition);
+}
+
+.generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.generate-btn:active {
+    transform: translateY(0);
+}
+
+/* Output section styling */
+/* تنسيق قسم المخرجات */
+.output-section {
+    margin-top: 2rem;
+}
+
+.output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.output-header h2 {
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+
+/* Copy button for generated code */
+/* زر النسخ للكود المولد */
+.copy-btn {
+    background: var(--success-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.copy-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+/* Code output display area */
+/* منطقة عرض الكود المولد */
+.code-output {
+    background: var(--background-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    min-height: 200px;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.code-output code {
+    font-family: 'Courier New', Courier, monospace;
+    color: #10b981;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+/* ===========================
+   INSTRUCTIONS SECTION
+   AI instruction set display area
+   قسم التعليمات
+   =========================== */
+.instructions-section {
+    background: var(--surface-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+}
+
+.instructions-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+/* Instruction card styling */
+/* تنسيق بطاقة التعليمات */
+.instruction-card {
+    background: var(--background-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+}
+
+.instruction-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.instruction-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.instruction-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.instruction-card li {
+    padding: 0.5rem 0;
+    color: var(--text-color);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.instruction-card li:last-child {
+    border-bottom: none;
+}
+
+/* ===========================
+   7 OVERLAYS CONTAINER
+   Container for stacked overlays in lower right corner
+   حاوية الطبقات السبعة المتراكبة في الزاوية السفلية اليمنى
+   =========================== */
+.overlays-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 280px;
+}
+
+/* RTL support: move overlays to lower left in RTL mode */
+/* دعم العربية: نقل الطبقات إلى الزاوية السفلية اليسرى */
+body.rtl .overlays-container {
+    right: auto;
+    left: 20px;
+}
+
+/* ===========================
+   INDIVIDUAL OVERLAY STYLING
+   Each overlay is stacked with specific positioning
+   تنسيق كل طبقة على حدة
+   =========================== */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background: linear-gradient(135deg, var(--surface-color), var(--background-color));
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+    cursor: pointer;
+    border: 2px solid rgba(99, 102, 241, 0.3);
+    overflow: hidden;
+}
+
+/* Hover effect for all overlays */
+/* تأثير التحويم لجميع الطبقات */
+.overlay:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Specific positioning for each of the 7 overlays */
+/* تحديد موضع كل طبقة من الطبقات السبعة */
+
+/* Overlay 1: Base layer (closest to user) */
+/* الطبقة 1: الطبقة الأساسية (الأقرب للمستخدم) */
+.overlay-1 {
+    z-index: 7;
+    bottom: 0;
+    right: 0;
+}
+
+/* Overlay 2: Second layer */
+/* الطبقة 2: الطبقة الثانية */
+.overlay-2 {
+    z-index: 6;
+    bottom: 15px;
+    right: 15px;
+    opacity: 0.95;
+}
+
+/* Overlay 3: Third layer */
+/* الطبقة 3: الطبقة الثالثة */
+.overlay-3 {
+    z-index: 5;
+    bottom: 30px;
+    right: 30px;
+    opacity: 0.9;
+}
+
+/* Overlay 4: Fourth layer (middle) */
+/* الطبقة 4: الطبقة الرابعة (الوسطى) */
+.overlay-4 {
+    z-index: 4;
+    bottom: 45px;
+    right: 45px;
+    opacity: 0.85;
+}
+
+/* Overlay 5: Fifth layer */
+/* الطبقة 5: الطبقة الخامسة */
+.overlay-5 {
+    z-index: 3;
+    bottom: 60px;
+    right: 60px;
+    opacity: 0.8;
+}
+
+/* Overlay 6: Sixth layer */
+/* الطبقة 6: الطبقة السادسة */
+.overlay-6 {
+    z-index: 2;
+    bottom: 75px;
+    right: 75px;
+    opacity: 0.75;
+}
+
+/* Overlay 7: Seventh layer (furthest from user) */
+/* الطبقة 7: الطبقة السابعة (الأبعد عن المستخدم) */
+.overlay-7 {
+    z-index: 1;
+    bottom: 90px;
+    right: 90px;
+    opacity: 0.7;
+}
+
+/* Overlay content area */
+/* منطقة محتوى الطبقة */
+.overlay-content {
+    padding: 1rem;
+    position: relative;
+}
+
+.overlay-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.overlay-content p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Close button for each overlay */
+/* زر الإغلاق لكل طبقة */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(239, 68, 68, 0.8);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.rtl .close-btn {
+    right: auto;
+    left: 10px;
+}
+
+.close-btn:hover {
+    background: rgba(239, 68, 68, 1);
+    transform: rotate(90deg);
+}
+
+/* Hidden state for closed overlays */
+/* حالة الإخفاء للطبقات المغلقة */
+.overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(50px) scale(0.8);
+}
+
+/* ===========================
+   FOOTER SECTION
+   Bottom page footer
+   تذييل الصفحة
+   =========================== */
+.main-footer {
+    background: var(--surface-color);
+    padding: 1.5rem 0;
+    text-align: center;
+    margin-top: auto;
+    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.main-footer p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+   Mobile and tablet optimizations
+   تصميم متجاوب للأجهزة المحمولة
+   =========================== */
+
+/* Tablet breakpoint */
+/* نقطة التوقف للأجهزة اللوحية */
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.4rem;
+    }
+
+    .main-header .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .overlays-container {
+        width: 220px;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    body.rtl .overlays-container {
+        left: 10px;
+    }
+
+    /* Adjust overlay stacking for smaller screens */
+    /* تعديل تكديس الطبقات للشاشات الصغيرة */
+    .overlay-2 { bottom: 10px; right: 10px; }
+    .overlay-3 { bottom: 20px; right: 20px; }
+    .overlay-4 { bottom: 30px; right: 30px; }
+    .overlay-5 { bottom: 40px; right: 40px; }
+    .overlay-6 { bottom: 50px; right: 50px; }
+    .overlay-7 { bottom: 60px; right: 60px; }
+}
+
+/* Mobile breakpoint */
+/* نقطة التوقف للهواتف المحمولة */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .code-generator-section,
+    .instructions-section {
+        padding: 1.5rem;
+    }
+
+    .overlays-container {
+        width: 180px;
+    }
+
+    .overlay-content h3 {
+        font-size: 0.95rem;
+    }
+
+    .overlay-content p {
+        font-size: 0.8rem;
+    }
+}
+
+/* ===========================
+   ANIMATIONS
+   Keyframe animations for enhanced UX
+   رسوم متحركة لتحسين تجربة المستخدم
+   =========================== */
+
+/* Fade-in animation for page load */
+/* رسوم متحركة للظهور التدريجي عند تحميل الصفحة */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.code-generator-section,
+.instructions-section {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Pulse animation for generate button */
+/* رسوم متحركة نبضية لزر التوليد */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+    }
+}
+
+.generate-btn:focus {
+    animation: pulse 1.5s infinite;
+}
