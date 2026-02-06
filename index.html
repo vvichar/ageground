@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Explainer Prompt Studio</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --panel: #111827;
+        --ink: #e5e7eb;
+        --muted: #94a3b8;
+        --accent: #22d3ee;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        color: var(--ink);
+        background: radial-gradient(circle at 20% 20%, #1e293b, var(--bg));
+        min-height: 100vh;
+        padding: 2rem;
+      }
+      main {
+        max-width: 980px;
+        margin: 0 auto;
+        background: rgba(17, 24, 39, 0.9);
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        border-radius: 16px;
+        padding: 1.5rem;
+        backdrop-filter: blur(8px);
+      }
+      h1, h2 { margin-top: 0; }
+      .muted { color: var(--muted); }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+      }
+      .card {
+        background: #0b1220;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 12px;
+        padding: 1rem;
+      }
+      pre {
+        white-space: pre-wrap;
+        background: #020617;
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 10px;
+        padding: 1rem;
+        color: #bae6fd;
+        font-size: 0.93rem;
+        overflow-x: auto;
+      }
+      .overlay-stack {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        width: 220px;
+        height: 220px;
+        pointer-events: none;
+      }
+      .overlay {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 220px;
+        border-radius: 10px;
+        color: white;
+        font-weight: 600;
+        padding: 0.5rem 0.75rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+      }
+      .o1 { z-index: 1; transform: translate(-60px, -84px); background: rgba(244, 63, 94, 0.6); }
+      .o2 { z-index: 2; transform: translate(-50px, -70px); background: rgba(251, 113, 133, 0.6); }
+      .o3 { z-index: 3; transform: translate(-40px, -56px); background: rgba(245, 158, 11, 0.6); }
+      .o4 { z-index: 4; transform: translate(-30px, -42px); background: rgba(16, 185, 129, 0.6); }
+      .o5 { z-index: 5; transform: translate(-20px, -28px); background: rgba(34, 211, 238, 0.6); }
+      .o6 { z-index: 6; transform: translate(-10px, -14px); background: rgba(99, 102, 241, 0.6); }
+      .o7 { z-index: 7; transform: translate(0, 0); background: rgba(168, 85, 247, 0.6); }
+      code { color: var(--accent); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Code Explainer Prompt Studio</h1>
+      <p class="muted">
+        A starter page for generating code with section-by-section explanations, including
+        a Libyan Arabic translation.
+      </p>
+
+      <div class="grid">
+        <section class="card">
+          <h2>Generative AI Instruction Set (English)</h2>
+          <pre>
+You are a code-generation assistant.
+
+Goal:
+- Generate complete, runnable code.
+- Explain what each section does immediately after the section.
+
+Format requirements:
+1) Start with a short "Plan".
+2) Generate code in labeled sections, for example:
+   - Section 1: Imports
+   - Section 2: Configuration
+   - Section 3: Core logic
+   - Section 4: UI/output
+3) After every section, add:
+   "Explanation:" and a clear plain-language summary.
+4) End with:
+   - How to run
+   - Example input/output
+   - Optional improvements
+
+Quality rules:
+- Keep code readable and commented.
+- Use meaningful variable and function names.
+- If assumptions are made, list them explicitly.
+- If dependencies are needed, list installation commands.
+          </pre>
+        </section>
+
+        <section class="card" dir="rtl" lang="ar-LY">
+          <h2>ترجمة ليبية (Libyan Arabic)</h2>
+          <pre>
+إنت مساعد لتوليد الكود.
+
+الهدف:
+- ولّد كود كامل ويخدم مباشرة.
+- فسّر شن يدير كل قسم من الكود بعده علطول.
+
+طريقة الرد المطلوبة:
+1) ابدأ بخطة قصيرة بعنوان "الخطة".
+2) ولّد الكود مقسّم لأقسام واضحة، زي:
+   - القسم 1: الاستيراد
+   - القسم 2: الإعدادات
+   - القسم 3: المنطق الأساسي
+   - القسم 4: الواجهة/الإخراج
+3) بعد كل قسم، اكتب:
+   "الشرح:" بشرح بسيط وواضح.
+4) في النهاية اكتب:
+   - كيف نشغّل الكود
+   - مثال إدخال/إخراج
+   - تحسينات اختيارية
+
+قواعد الجودة:
+- خليه مقروء ومعلّق عليه بشكل مناسب.
+- استخدم أسامي واضحة للمتغيّرات والدوال.
+- لو في افتراضات، اذكرهم بصراحة.
+- لو في مكتبات مطلوبة، اكتب أوامر التثبيت.
+          </pre>
+        </section>
+      </div>
+    </main>
+
+    <div class="overlay-stack" aria-hidden="true">
+      <div class="overlay o1">Overlay 1</div>
+      <div class="overlay o2">Overlay 2</div>
+      <div class="overlay o3">Overlay 3</div>
+      <div class="overlay o4">Overlay 4</div>
+      <div class="overlay o5">Overlay 5</div>
+      <div class="overlay o6">Overlay 6</div>
+      <div class="overlay o7">Overlay 7</div>
+    </div>
+  </body>
+</html>
