@@ -1,3 +1,17 @@
+# line 1-15 is written by a human, hear me out
+
+## the arabic claude/tembo test (with sonnet 4.5)
+## agent: claude code, ran in tembo
+## model: sonnet 4.5
+prompt: code me an website and a generative ai instruction set that generates code with explanation what that code does on each section in the code it generates, make the website have 7 overlays placed ontop of eachother at the lower right corner, and make a translation for that in Libyan Arabic
+
+submitted by another person, they wish to not be credited
+
+my thoughts: so, claude also made an instruction set, like codex, so that might be related to the prompt then, cubic clocked claude's ass though, and catched an issue (lol), idk anything aside frrom that tho
+
+
+
+
 # AI Code Generator with Explanations
 # مولد الكود الذكي مع الشرح
 
@@ -395,16 +409,7 @@ For questions, issues, or suggestions:
 
 ---
 
-**Made with ❤️ by AI Code Generator Team**
+**Made with ❤️ by claude sonnet 4.5 in claude code with tembo**
 **صنع بـ ❤️ من قبل فريق مولد الكود الذكي**
 
 ---
-
-## ageground
-## because i dont trust benchmarks enough
-
-the main branch of this is supposed to be empty, all the agents i test have their respective branches
-branch naming goes like this
- [tool name] or alternatively [model-tool]
-
- most of the time i use the most recent model so yeah, but i do try to specify about the agent in their readme
